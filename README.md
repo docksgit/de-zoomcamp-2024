@@ -7,7 +7,7 @@ To join and access detailed materials, please see [Data Engineering Zoomcamp Rep
 ## Week-1
 Steps:
 1. Turn on the VM and get the external IP
-2. Place the IP to `config` file in .ssh folder
+2. Place the IP to `config` file in `.ssh` folder
 3. Connect VM via SSH in VSCode (suggested) or CMD via `ssh de-zoomcamp` as `config` file
 4. Navigate to the VM directory 
 5. Setup docker-compose with `docker-compose up -d`
