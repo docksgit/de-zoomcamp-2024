@@ -4,6 +4,7 @@ Codes or commands to answer questions for homework
 
 1. Commands:
 `docker run --help` ->      `--rm    Automatically remove the container when it exits`
+
 2. 
 Dockerfile:
 ```
@@ -13,9 +14,7 @@ ENTRYPOINT [ "bash" ]
 
 Commands:
 `docker build -t python:3.9 .`
-
 `docker run -it python:3.9`
-
 `pip list` -> `wheel      0.42.0`
 
 3. SQL Code:
@@ -25,6 +24,7 @@ FROM public.green_taxi_data
 WHERE date(lpep_pickup_datetime) = '2019-09-18' 
 AND date(lpep_dropoff_datetime) = '2019-09-18'
 ```
+
 4. SQL Code:
 ```
 SELECT date(lpep_pickup_datetime)
@@ -34,6 +34,7 @@ WHERE trip_distance = (
 	FROM public.green_taxi_data
 )
 ```
+
 5. SQL Code:
 ```
 SELECT zpu."Borough", SUM(gtd."total_amount") AS sum_total_amount
@@ -44,8 +45,6 @@ AND zpu."Borough" != 'Unknown'
 GROUP BY zpu."Borough"
 HAVING SUM(gtd."total_amount") > 50000
 ORDER BY sum_total_amount
-
--- Need to join and create new Zone/Borough columns for each pickup and dropoff
 ```
 
 6. SQL Code:
@@ -70,7 +69,6 @@ WHERE tip_amount = (
 
 7. `terraform apply` Output:
 ```
-
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
 
