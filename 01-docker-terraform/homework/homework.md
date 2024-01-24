@@ -2,7 +2,8 @@
 
 Codes or commands to answer questions for homework
 
-1. `docker run --help` ->      `--rm    Automatically remove the container when it exits`
+1. Commands:
+`docker run --help` ->      `--rm    Automatically remove the container when it exits`
 2. 
 Dockerfile:
 ```
@@ -10,20 +11,21 @@ FROM python:3.9
 ENTRYPOINT [ "bash" ]
 ```
 
+Commands:
 `docker build -t python:3.9 .`
 
 `docker run -it python:3.9`
 
 `pip list` -> `wheel      0.42.0`
 
-3. 
+3. SQL Code:
 ```
 SELECT count(*)
 FROM public.green_taxi_data
 WHERE date(lpep_pickup_datetime) = '2019-09-18' 
 AND date(lpep_dropoff_datetime) = '2019-09-18'
 ```
-4. 
+4. SQL Code:
 ```
 SELECT date(lpep_pickup_datetime)
 FROM public.green_taxi_data
@@ -32,7 +34,7 @@ WHERE trip_distance = (
 	FROM public.green_taxi_data
 )
 ```
-5. 
+5. SQL Code:
 ```
 SELECT zpu."Borough", SUM(gtd."total_amount") AS sum_total_amount
 FROM public.green_taxi_data gtd
@@ -46,7 +48,7 @@ ORDER BY sum_total_amount
 -- Need to join and create new Zone/Borough columns for each pickup and dropoff
 ```
 
-6. 
+6. SQL Code:
 ```
 WITH zone_dropoff_and_tip AS (
 	SELECT zdo."Zone" AS zone_dropoff,
@@ -66,7 +68,7 @@ WHERE tip_amount = (
 	)
 ```
 
-7. 
+7. `terraform apply` Output:
 ```
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
