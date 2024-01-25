@@ -3,19 +3,20 @@
 Codes or commands to answer questions for homework
 
 1. Commands:
-`docker run --help` ->      `--rm    Automatically remove the container when it exits`
+`docker run --help`\
+`--rm    Automatically remove the container when it exits`
 
-2. 
-Dockerfile:
+2. Dockerfile:
 ```
 FROM python:3.9
 ENTRYPOINT [ "bash" ]
 ```
 
 Commands:
-`docker build -t python:3.9 .`
-`docker run -it python:3.9`
-`pip list` -> `wheel      0.42.0`
+`docker build -t python:3.9 .`\
+`docker run -it python:3.9`\
+`pip list`\
+`wheel      0.42.0`
 
 3. SQL Code:
 ```
