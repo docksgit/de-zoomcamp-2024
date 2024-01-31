@@ -1,0 +1,49 @@
+services:
+  postgres:
+    image: postgres:14
+    restart: on-failure
+    container_name: ${PROJECT_NAME}-postgres
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DBNAME}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - "./data/ny_taxi_postgres_data:/var/lib/postgresql/data:rw"
+  pgadmin:
+    image: dpage/pgadmin4
+    volumes:
+      - ./data_pgadmin:/var/lib/pgadmin
+    env_file:
+      - .env
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - "${PGADMIN_PORT}:80"
+  magic:
+    image: mageai/mageai:latest
+    command: mage start ${PROJECT_NAME}
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      USER_CODE_PATH: /home/src/${PROJECT_NAME}
+      POSTGRES_DBNAME: ${POSTGRES_DBNAME}
+      #POSTGRES_SCHEMA: ${POSTGRES_SCHEMA}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+    ports:
+      - 6789:6789
+    volumes:
+      - .:/home/src/
+      - ~/home/docksgit/.gcp/de-zoomcamp-key.json:/home/src/de-zoomcamp-key.json
+    restart: on-failure:5
+    
