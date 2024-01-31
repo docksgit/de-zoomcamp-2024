@@ -15,3 +15,15 @@ Steps:
 6. Quick check to Postgres via local with activated .venv `pgcli -h localhost -p 5432 -u root -d ny_taxi`
 7. Detailed check to Postgress via pgAdmin in localhost:8080
 8. Terraform setup and apply
+
+## Week-2
+Tech stacks:
+- Postgres
+- pgAdmin
+- Mage
+- Docker
+- Terraform
+- GCP: Cloud Storage and BigQuery
+Steps:
+1. Setup docker-compose.yml (IN PROGRESS) and Dockerfile (NEXT UP)
+2. Setup terraform files (NEXT UP)
