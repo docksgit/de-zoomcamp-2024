@@ -14,16 +14,16 @@ services:
     volumes:
       - "./data/ny_taxi_postgres_data:/var/lib/postgresql/data:rw"
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:latest
     volumes:
       - ./data_pgadmin:/var/lib/pgadmin
     env_file:
       - .env
     environment:
-      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
-      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
     ports:
-      - "${PGADMIN_PORT}:80"
+      - "8080:80"
   magic:
     image: mageai/mageai:latest
     command: mage start ${PROJECT_NAME}
