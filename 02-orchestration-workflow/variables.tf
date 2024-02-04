@@ -23,13 +23,13 @@ variable "location" {
 variable "bq_dataset_name" {
   description = "BigQuery Dataset Name for Week-1 Homework"
   #Update the below to what you want your dataset to be called
-  default     = "week_1_hw_dataset"
+  default     = "week_2_hw_dataset"
 }
 
 variable "gcs_bucket_name" {
   description = "Storage Bucket Name for Week-1 Homework"
   #Update the below to a unique bucket name
-  default     = "week-1-hw-bucket"
+  default     = "week-2-hw-bucket"
 }
 
 variable "gcs_storage_class" {

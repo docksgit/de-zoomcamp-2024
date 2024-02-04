@@ -3,6 +3,7 @@ data_pgadmin/
 data/
 ny_taxi_postgres_data/
 *.csv
+mage_data/
 
 
 # Local .terraform directories
