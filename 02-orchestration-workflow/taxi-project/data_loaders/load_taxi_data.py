@@ -15,9 +15,9 @@ def load_data_from_api(*args, **kwargs):
     """
     url = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/'
     year = '2020'
-    last_quarter = ['10','11','12']
+    q4 = ['10','11','12']
     dfs = []
-    for month in last_quarter:
+    for month in q4:
         filename = f'{url}green_tripdata_{year}-{month}.csv.gz'
 
         taxi_dtypes = {

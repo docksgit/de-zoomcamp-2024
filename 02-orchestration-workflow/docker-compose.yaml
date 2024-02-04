@@ -1,5 +1,33 @@
+version: '3'
 services:
-  postgres:
+  magic:
+    image: mageai/mageai:latest
+    command: mage start ${PROJECT_NAME}
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      USER_CODE_PATH: /home/src/${PROJECT_NAME}
+      ENV: ${ENV}
+      POSTGRES_DBNAME: ${POSTGRES_DBNAME}
+      POSTGRES_SCHEMA: ${POSTGRES_SCHEMA}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+    ports:
+      - 6789:6789
+    volumes:
+      - .:/home/src
+      # - /home/docksgit/.gcp/de-zoomcamp-key.json:/home/src/de-zoomcamp-key.json
+      - type: bind
+        source: /home/docksgit/.gcp/de-zoomcamp-key.json
+        target: /home/src/de-zoomcamp-key.json
+        read_only: true
+    restart: on-failure:5
+  pgdatabase:
     image: postgres:14
     restart: on-failure
     container_name: ${PROJECT_NAME}-postgres
@@ -11,39 +39,12 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "${POSTGRES_PORT}:5432"
-    volumes:
-      - "./data/ny_taxi_postgres_data:/var/lib/postgresql/data:rw"
   pgadmin:
-    image: dpage/pgadmin4:latest
+    image: dpage/pgadmin4
     volumes:
       - ./data_pgadmin:/var/lib/pgadmin
-    env_file:
-      - .env
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=root
     ports:
       - "8080:80"
-  magic:
-    image: mageai/mageai:latest
-    command: mage start ${PROJECT_NAME}
-    env_file:
-      - .env
-    build:
-      context: .
-      dockerfile: Dockerfile
-    environment:
-      USER_CODE_PATH: /home/src/${PROJECT_NAME}
-      POSTGRES_DBNAME: ${POSTGRES_DBNAME}
-      #POSTGRES_SCHEMA: ${POSTGRES_SCHEMA}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_HOST: ${POSTGRES_HOST}
-      POSTGRES_PORT: ${POSTGRES_PORT}
-    ports:
-      - 6789:6789
-    volumes:
-      - .:/home/src/
-      - ~/home/docksgit/.gcp/de-zoomcamp-key.json:/home/src/de-zoomcamp-key.json
-    restart: on-failure:5
-    

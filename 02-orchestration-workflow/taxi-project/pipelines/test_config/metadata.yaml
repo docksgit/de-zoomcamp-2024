@@ -14,18 +14,18 @@ blocks:
   executor_type: local_python
   has_callback: false
   language: sql
-  name: test_postgres
+  name: test_conn_postgres
   retry_config: null
-  status: failed
+  status: executed
   timeout: null
   type: transformer
   upstream_blocks: []
-  uuid: test_postgres
+  uuid: test_conn_postgres
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
 conditionals: []
-created_at: '2024-02-04 09:51:47.924241+00:00'
+created_at: '2024-02-04 11:37:16.643724+00:00'
 data_integration: null
 description: null
 executor_config: {}
@@ -42,7 +42,7 @@ settings:
 spark_config: {}
 tags: []
 type: python
-updated_at: '2024-02-04 10:32:45'
+updated_at: '2024-02-04T11:40:29+00:00'
 uuid: test_config
-variables_dir: /home/src/mage_data/02-orchestration-workflow
+variables_dir: /home/src/mage_data/taxi-project
 widgets: []
