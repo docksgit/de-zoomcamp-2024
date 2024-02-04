@@ -23,7 +23,12 @@ Tech stacks:
 - Mage
 - Docker
 - Terraform
-- GCP: Cloud Storage and BigQuery
+- GCP: Cloud Storage and BigQuery \
 Steps:
-1. Setup docker-compose.yml (IN PROGRESS) and Dockerfile (NEXT UP)
-2. Setup terraform files (NEXT UP)
+1. Prepare VM SSH connection in VS Code
+2. Setup docker-compose.yml and Dockerfile for Postgres, pgAdmin, and Mage
+3. Setup terraform files to create bucket in GCS
+4. `docker-compose up -d` and forward the ports in VS Code
+5. `terraform apply` for needed infra
+5. Creating pipeline `green_taxi_etl` in Mage as instructed
+
