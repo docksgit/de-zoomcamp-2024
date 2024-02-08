@@ -46,10 +46,13 @@ Tech stacks:
 - Mage
 - Docker
 - Terraform
-- GCP: Cloud Storage and BigQuery \
-\
+- GCP: Cloud Storage and BigQuery 
+
+Data:
+[NYC Green Taxi 2022](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) 
+
 Steps:
-1. Create `raw_data_urls.txt` and `download_raw_data.sh`, then give permission `chmod +x download_raw_data.sh` to download parquet data into local
+1. Create `raw_data_urls.txt` and `download_raw_data.sh`, then give permission `chmod +x download_raw_data.sh` to download parquet data into local (See [reference](https://github.com/toddwschneider/nyc-taxi-data/tree/master))
 2. Build `mageai/mageai:latest` Docker Image, then construct `docker-compose.yml` file
-3. (NEXT UP) Setup Terraform for GCS bucket and BigQuery dataset
-4. (NEXT UP) Create pipeline on Mage (try download the parquet files via data_loader API template too if possible) 
+3. (NEXT UP) Setup Terraform to manage GCS bucket and BigQuery dataset
+4. (NEXT UP) Create pipeline on Mage (try download the parquet files via data_loader API template too if possible) to load data into GCS bucket (See [reference](https://www.nyc.gov/assets/tlc/downloads/pdf/working_parquet_format.pdf))
