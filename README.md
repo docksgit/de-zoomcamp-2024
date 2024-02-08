@@ -5,6 +5,13 @@ This repo is built to store any necessity codes and files for Data Engineering Z
 To join and access detailed materials, please see [Data Engineering Zoomcamp Repo](https://github.com/DataTalksClub/data-engineering-zoomcamp).
 
 ## Week-1
+Tech stacks:
+- Postgres
+- pgAdmin
+- Docker
+- Terraform
+- GCP: Cloud Storage and BigQuery \
+\
 Steps:
 1. Turn on the VM and get the external IP
 2. Place the IP to `config` file in `.ssh` folder
@@ -23,7 +30,8 @@ Tech stacks:
 - Mage
 - Docker
 - Terraform
-- GCP: Cloud Storage and BigQuery \
+- GCP: Cloud Storage \
+\
 Steps:
 1. Prepare VM SSH connection in VS Code
 2. Setup docker-compose.yml and Dockerfile for Postgres, pgAdmin, and Mage
@@ -32,3 +40,19 @@ Steps:
 5. `terraform apply` for needed infra
 5. Creating pipeline `green_taxi_etl` in Mage as instructed
 
+## Week-3
+Tech stacks:
+- Bash Script
+- Mage
+- Docker
+- Terraform
+- GCP: Cloud Storage and BigQuery 
+
+Data:
+[NYC Green Taxi 2022](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) 
+
+Steps:
+1. Create `raw_data_urls.txt` and `download_raw_data.sh`, then give permission `chmod +x download_raw_data.sh` to download parquet data into local (See [reference](https://github.com/toddwschneider/nyc-taxi-data/tree/master))
+2. Build `mageai/mageai:latest` Docker Image, then construct `docker-compose.yml` file
+3. (NEXT UP) Setup Terraform to manage GCS bucket and BigQuery dataset
+4. (NEXT UP) Create pipeline on Mage (try download the parquet files via data_loader API template too if possible) to load data into GCS bucket (See [reference](https://www.nyc.gov/assets/tlc/downloads/pdf/working_parquet_format.pdf))
