@@ -41,10 +41,10 @@ services:
       - "${POSTGRES_PORT}:5432"
   pgadmin:
     image: dpage/pgadmin4
-    volumes:
-      - ./data_pgadmin:/var/lib/pgadmin
+    # volumes:
+    #   - ./data_pgadmin:/var/lib/pgadmin
     environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
-      - PGADMIN_DEFAULT_PASSWORD=root
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
     ports:
-      - "8080:80"
+      - "${PGADMIN_PORT}:80"
