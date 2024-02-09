@@ -10,8 +10,8 @@ Tech stacks:
 - pgAdmin
 - Docker
 - Terraform
-- GCP: Cloud Storage and BigQuery \
-\
+- GCP: Cloud Storage and BigQuery
+
 Steps:
 1. Turn on the VM and get the external IP
 2. Place the IP to `config` file in `.ssh` folder
@@ -30,10 +30,10 @@ Tech stacks:
 - Mage
 - Docker
 - Terraform
-- GCP: Cloud Storage \
-\
+- GCP: Cloud Storage 
+
 Steps:
-1. Prepare VM SSH connection in VS Code
+1. Prepare VM SSH connection in VS Code, navigate to the project directory
 2. Setup docker-compose.yml and Dockerfile for Postgres, pgAdmin, and Mage
 3. Setup terraform files to create bucket in GCS
 4. `docker-compose up -d` and forward the ports in VS Code
@@ -43,8 +43,6 @@ Steps:
 ## Week-3
 Tech stacks:
 - Bash Script
-- Mage
-- Docker
 - Terraform
 - GCP: Cloud Storage and BigQuery 
 
@@ -52,7 +50,13 @@ Data:
 [NYC Green Taxi 2022](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) 
 
 Steps:
-1. Create `raw_data_urls.txt` and `download_raw_data.sh`, then give permission `chmod +x download_raw_data.sh` to download parquet data into local (See [reference](https://github.com/toddwschneider/nyc-taxi-data/tree/master))
-2. Build `mageai/mageai:latest` Docker Image, then construct `docker-compose.yml` file
-3. (NEXT UP) Setup Terraform to manage GCS bucket and BigQuery dataset
-4. (NEXT UP) Create pipeline on Mage (try download the parquet files via data_loader API template too if possible) to load data into GCS bucket (See [reference](https://www.nyc.gov/assets/tlc/downloads/pdf/working_parquet_format.pdf))
+<!-- 1. Prepare VM SSH connection in VS Code
+2. Create `raw_data_urls.txt` and `download_raw_data.sh`, then give permission `chmod +x download_raw_data.sh` to download parquet data into local (See [reference](https://github.com/toddwschneider/nyc-taxi-data/tree/master)) (WRONG DATA, REDO THIS STEP!)
+3. Build `mageai/mageai:latest` Docker Image, then construct `docker-compose.yml` file
+4. Setup Terraform to manage GCS bucket and BigQuery dataset, and create folder in GCS bucket for the file
+5. (NEXT UP) Create pipeline on Mage (try download the parquet files via data_loader API template too if possible) to load data into GCS bucket (See [reference](https://www.nyc.gov/assets/tlc/downloads/pdf/working_parquet_format.pdf)) -->
+
+1. Prepare VM SSH connection in VS Code, navigate to the project directory
+2. Setup Terraform to manage GCS bucket and BigQuery dataset, and create folder in GCS bucket for the files
+3. Create `raw_data_urls.txt` and `download_raw_data.sh`, then give permission `chmod +x download_raw_data.sh` to download parquet data into GCS folder (See [reference-1](https://github.com/toddwschneider/nyc-taxi-data/tree/master) and [reference-2](https://stackoverflow.com/questions/55524999/is-there-any-terraform-module-to-create-folders-within-a-bucket-gcp)), and execute 
+4. Move to BigQuery then create tables as needed (NEXT UP: Continue the homework)

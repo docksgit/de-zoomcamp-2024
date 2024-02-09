@@ -14,7 +14,7 @@ provider "google" {
 }
 
 
-resource "google_storage_bucket" "week-2-hw-bucket" {
+resource "google_storage_bucket" "data_lake_bucket" {
   name          = var.gcs_bucket_name
   location      = var.location
   force_destroy = true
@@ -30,9 +30,14 @@ resource "google_storage_bucket" "week-2-hw-bucket" {
   }
 }
 
+resource "google_storage_bucket_object" "bucket_dir" {
+  name          = var.gcs_bucket_dir_name
+  content       = " "
+  bucket        = "${google_storage_bucket.data_lake_bucket.name}"
+}
 
 
-resource "google_bigquery_dataset" "week_2_hw_dataset" {
+resource "google_bigquery_dataset" "bq_dataset" {
   dataset_id = var.bq_dataset_name
   location   = var.location
 }
