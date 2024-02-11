@@ -2,11 +2,16 @@
 
 Codes or commands to answer questions for homework
 
-1. Commands:
-`docker run --help`\
+## Question 1. 
+Commands:
+`docker run --help`
+### Answer 
+
+**solution**: 
 `--rm    Automatically remove the container when it exits`
 
-2. Dockerfile:
+## Question 2.
+Dockerfile:
 ```
 FROM python:3.9
 ENTRYPOINT [ "bash" ]
@@ -15,18 +20,26 @@ ENTRYPOINT [ "bash" ]
 Commands:
 `docker build -t python:3.9 .`\
 `docker run -it python:3.9`\
-`pip list`\
+`pip list`
+### Answer 
+
+**solution**:
 `wheel      0.42.0`
 
-3. SQL Code:
+## Question 3.
+SQL Code:
 ```
 SELECT count(*)
 FROM public.green_taxi_data
 WHERE date(lpep_pickup_datetime) = '2019-09-18' 
 AND date(lpep_dropoff_datetime) = '2019-09-18'
 ```
+### Answer 
 
-4. SQL Code:
+**solution**: `15612`
+
+## Question 4.
+SQL Code:
 ```
 SELECT date(lpep_pickup_datetime)
 FROM public.green_taxi_data
@@ -35,8 +48,12 @@ WHERE trip_distance = (
 	FROM public.green_taxi_data
 )
 ```
+### Answer 
 
-5. SQL Code:
+**solution**: `2019-09-26`
+
+## Question 5.
+SQL Code:
 ```
 SELECT zpu."Borough", SUM(gtd."total_amount") AS sum_total_amount
 FROM public.green_taxi_data gtd
@@ -47,8 +64,12 @@ GROUP BY zpu."Borough"
 HAVING SUM(gtd."total_amount") > 50000
 ORDER BY sum_total_amount
 ```
+### Answer 
 
-6. SQL Code:
+**solution**: `"Brooklyn" "Manhattan" "Queens"`
+
+## Question 6.
+SQL Code:
 ```
 WITH zone_dropoff_and_tip AS (
 	SELECT zdo."Zone" AS zone_dropoff,
@@ -67,8 +88,16 @@ WHERE tip_amount = (
 	FROM zone_dropoff_and_tip
 	)
 ```
+### Answer 
 
-7. `terraform apply` Output:
+**solution**: `JFK Airport`
+
+## Question 7.
+`terraform apply` Output:
+
+### Answer 
+
+**solution**: 
 ```
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create

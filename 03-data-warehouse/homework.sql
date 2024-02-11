@@ -24,17 +24,24 @@ SELECT SUM(IF(fare_amount=0, 1, 0)) FROM `hardy-portal-411910.week_3_hw_dataset_
 -- ANSWER: 1622
 
 -- QUESTION 4
-CREATE OR REPLACE TABLE `taxi-rides-ny.nytaxi.fhv_partitioned_tripdata`
-PARTITION BY DATE(dropoff_datetime)
-CLUSTER BY dispatching_base_num AS (
-  SELECT * FROM `taxi-rides-ny.nytaxi.fhv_tripdata`
+CREATE OR REPLACE TABLE `hardy-portal-411910.week_3_hw_dataset_docksgit.green_tripdata_2022_partitioned`
+PARTITION BY DATE(lpep_pickup_datetime)
+CLUSTER BY PUlocationID AS (
+  SELECT * FROM `hardy-portal-411910.week_3_hw_dataset_docksgit.green_tripdata_2022`
 );
+-- ANSWER: Partition by lpep_pickup_datetime and cluster by PUlocationID
 
-SELECT count(*) FROM  `taxi-rides-ny.nytaxi.fhv_nonpartitioned_tripdata`
-WHERE DATE(dropoff_datetime) BETWEEN '2019-01-01' AND '2019-03-31'
-  AND dispatching_base_num IN ('B00987', 'B02279', 'B02060');
+-- QUESTION 5
+SELECT count(DISTINCT PULocationID) FROM  `hardy-portal-411910.week_3_hw_dataset_docksgit.green_tripdata_2022_nonpartitioned`
+WHERE DATE(lpep_pickup_datetime) BETWEEN '2022-06-01' AND '2022-06-30'
+-- ANSWER: 12.82 MB
 
+SELECT count(DISTINCT PULocationID) FROM  `hardy-portal-411910.week_3_hw_dataset_docksgit.green_tripdata_2022_partitioned`
+WHERE DATE(lpep_pickup_datetime) BETWEEN '2022-06-01' AND '2022-06-30'
+-- ANSWER: 1.12 MB
 
-SELECT count(*) FROM `taxi-rides-ny.nytaxi.fhv_partitioned_tripdata`
-WHERE DATE(dropoff_datetime) BETWEEN '2019-01-01' AND '2019-03-31'
-  AND dispatching_base_num IN ('B00987', 'B02279', 'B02060');
+-- QUESTION 6
+-- ANSWER: GCP Bucket
+
+-- QUESTION 7
+-- ANSWER: True
