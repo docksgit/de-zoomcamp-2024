@@ -32,13 +32,13 @@ CLUSTER BY PUlocationID AS (
 -- ANSWER: Partition by lpep_pickup_datetime and cluster by PUlocationID
 
 -- QUESTION 5
-SELECT count(DISTINCT PULocationID) FROM  `hardy-portal-411910.week_3_hw_dataset_docksgit.green_tripdata_2022_nonpartitioned`
+SELECT DISTINCT PULocationID FROM  `hardy-portal-411910.week_3_hw_dataset_docksgit.green_tripdata_2022_nonpartitioned`
 WHERE DATE(lpep_pickup_datetime) BETWEEN '2022-06-01' AND '2022-06-30'
--- ANSWER: 12.82 MB
+-- ANSWER: This query will process 12.82 MB when run. 
 
-SELECT count(DISTINCT PULocationID) FROM  `hardy-portal-411910.week_3_hw_dataset_docksgit.green_tripdata_2022_partitioned`
+SELECT DISTINCT PULocationID FROM  `hardy-portal-411910.week_3_hw_dataset_docksgit.green_tripdata_2022_partitioned`
 WHERE DATE(lpep_pickup_datetime) BETWEEN '2022-06-01' AND '2022-06-30'
--- ANSWER: 1.12 MB
+-- ANSWER: This query will process 1.12 MB when run.
 
 -- QUESTION 6
 -- ANSWER: GCP Bucket
