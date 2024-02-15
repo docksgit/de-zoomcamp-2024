@@ -14,4 +14,5 @@ Steps:
 3. Create `raw_data_urls.txt` and `download_raw_data.sh`, then give permission `chmod +x download_raw_data.sh` to download parquet data into GCS folder (See [reference-1](https://github.com/toddwschneider/nyc-taxi-data/tree/master) and [reference-2](https://stackoverflow.com/questions/55524999/is-there-any-terraform-module-to-create-folders-within-a-bucket-gcp)), and execute 
 4. Move to BigQuery then create tables as needed
 
--1. Setup dbt cloud account and BQ service account for dbt (See [reference](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/04-analytics-engineering/dbt_cloud_setup.md)) 
+5. Setup dbt cloud account, BQ service account, github repo linking, and project for dbt (See [reference](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/04-analytics-engineering/dbt_cloud_setup.md)) 
+6. Initialize project in dbt IDE 
